@@ -6,8 +6,6 @@ issue_001       Does not parse a .txt file.
 
 issue_002       Help flag "-h" does not display the usage line "Usage: beti [filename]"
 
-issue_003       Remove the Beti version and copyright info at the bottom of the page.
-                It's already in a comment tag.
 
 
 
