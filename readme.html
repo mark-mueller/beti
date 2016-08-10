@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<HTML id="_top">
+<HEAD>
+<TITLE>Beti Text Formatter</TITLE>
+<META charset="utf-8" />
+<META name="generator" content="Beti v0.0.0-x.0.1.89" />
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Beti v0.0.0-x.0.1.89
+Copyright 2015 Mark K Mueller. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<LINK type="text/css" rel="stylesheet" href="beti.css" />
+</HEAD>
+<BODY>
+<H1 id="overview">1. Overview</H1>
+<P class="wrap">By Mark K Mueller
+<A href="mailto:mark@markmueller.com">mark@markmueller.com</A>
+v2.03 2015-09-17</P>
+
+<P>The Beti text formatting engine will produce HTML documents from a source file
+using little more than indented paragraphs and a small set of keywords. The goal
+is to produce HTML documents from simple comments without a lot of extra markup
+symbols leaving the original comments as uncluttered and readable as possible.
+The feature set is intentionally sparse to maintain simplicity. Formatting
+features such as headings, text blocks, spans, tables and lists are easily
+achieved using a few keywords.</P>
+
+<H1 id="index">Index</H1><DIV class="index table">
+<DIV class="row rowno_1"><DIV class="cell index_num">1.</DIV><DIV class="cell index_text"><A href="#overview" class="link-level-1">Overview</A></DIV></DIV>
+<DIV class="row rowno_2"><DIV class="cell index_num">2.</DIV><DIV class="cell index_text"><A href="#usage" class="link-level-1">Usage</A></DIV></DIV>
+<DIV class="row rowno_3"><DIV class="cell index_num">3.</DIV><DIV class="cell index_text"><A href="#section-headings" class="link-level-1">Section Headings</A></DIV></DIV>
+<DIV class="row rowno_4"><DIV class="cell index_num">3.1</DIV><DIV class="cell index_text"><A href="#1-subsection-headings" class="link-level-2">Subsection Headings</A></DIV></DIV>
+<DIV class="row rowno_5"><DIV class="cell index_num">4.</DIV><DIV class="cell index_text"><A href="#paragraphs" class="link-level-1">Paragraphs</A></DIV></DIV>
+<DIV class="row rowno_6"><DIV class="cell index_num"></DIV><DIV class="cell index_text"><A href="#paragraphs-example" class="link-level-3">Example</A></DIV></DIV>
+<DIV class="row rowno_7"><DIV class="cell index_num">5.</DIV><DIV class="cell index_text"><A href="#example-text" class="link-level-1">Example Text</A></DIV></DIV>
+<DIV class="row rowno_8"><DIV class="cell index_num"></DIV><DIV class="cell index_text"><A href="#example-text-example" class="link-level-3">Example</A></DIV></DIV>
+<DIV class="row rowno_9"><DIV class="cell index_num">6.</DIV><DIV class="cell index_text"><A href="#text-spans" class="link-level-1">Text Spans</A></DIV></DIV>
+<DIV class="row rowno_10"><DIV class="cell index_num"></DIV><DIV class="cell index_text"><A href="#text-spans-example-1" class="link-level-3">Example 1</A></DIV></DIV>
+<DIV class="row rowno_11"><DIV class="cell index_num">7.</DIV><DIV class="cell index_text"><A href="#lists" class="link-level-1">Lists</A></DIV></DIV>
+<DIV class="row rowno_12"><DIV class="cell index_num">8.</DIV><DIV class="cell index_text"><A href="#directives" class="link-level-1">Directives</A></DIV></DIV>
+<DIV class="row rowno_13"><DIV class="cell index_num">9.</DIV><DIV class="cell index_text"><A href="#page-anchors" class="link-level-1">Page Anchors</A></DIV></DIV>
+<DIV class="row rowno_14"><DIV class="cell index_num"></DIV><DIV class="cell index_text"><A href="#page-anchors-example" class="link-level-3">Example</A></DIV></DIV>
+<DIV class="row rowno_15"><DIV class="cell index_num">10.</DIV><DIV class="cell index_text"><A href="#links" class="link-level-1">Links</A></DIV></DIV>
+<DIV class="row rowno_16"><DIV class="cell index_num"></DIV><DIV class="cell index_text"><A href="#links-example" class="link-level-3">Example</A></DIV></DIV>
+<DIV class="row rowno_17"><DIV class="cell index_num"></DIV><DIV class="cell index_text"><A href="#links-result" class="link-level-3">Result</A></DIV></DIV>
+<DIV class="row rowno_18"><DIV class="cell index_num">11.</DIV><DIV class="cell index_text"><A href="#escape-symbol" class="link-level-1">Escape Symbol</A></DIV></DIV>
+<DIV class="row rowno_19"><DIV class="cell index_num"></DIV><DIV class="cell index_text"><A href="#escape-symbol-example" class="link-level-3">Example</A></DIV></DIV>
+<DIV class="row rowno_20"><DIV class="cell index_num"></DIV><DIV class="cell index_text"><A href="#escape-symbol-result" class="link-level-3">Result</A></DIV></DIV>
+<DIV class="row rowno_21"><DIV class="cell index_num">12.</DIV><DIV class="cell index_text"><A href="#tables" class="link-level-1">Tables</A></DIV></DIV>
+<DIV class="row rowno_22"><DIV class="cell index_num"></DIV><DIV class="cell index_text"><A href="#tables-example" class="link-level-3">Example</A></DIV></DIV>
+<DIV class="row rowno_23"><DIV class="cell index_num"></DIV><DIV class="cell index_text"><A href="#tables-result" class="link-level-3">Result</A></DIV></DIV>
+<DIV class="row rowno_24"><DIV class="cell index_num"></DIV><DIV class="cell index_text"><A href="#tables-table" class="link-level-3">Table</A></DIV></DIV>
+<DIV class="row rowno_25"><DIV class="cell index_num">13.</DIV><DIV class="cell index_text"><A href="#references" class="link-level-1">References</A></DIV></DIV>
+</DIV>
+
+<H1 id="usage">2. Usage</H1>
+<P>The Beti Text Formatter sends it's output to stdout.</P>
+
+<P class="pre">beti [options] source > output</P>
+
+<H1 id="section-headings">3. Section Headings</H1>
+<P>Chapter or section headings are indicated by either a single period or a decimal
+number in the first column followed by the section heading and placed on a line
+by itself.  It does not matter what numbers you use in each section as they are
+incremented automatically. If the first section heading is numbered, all of the
+section headings will be numbered.</P>
+
+<H2 id="1-subsection-headings">3.1 Subsection Headings</H2>
+<P>Level two subsection headings are indicated by a two place decimal number.</P>
+
+<H1 id="paragraphs">4. Paragraphs</H1>
+<P>Paragraphs are separated using one or more blank lines. Indented paragraphs will
+be formatted using the 'pre' class which is similar to the pre tag. This can be
+used to display code snippets.</P>
+
+<H3 id="paragraphs-example">Example:</H3><P class="pre example">for i := 0; i < 3; i++ {
+    println("Rub some bacon on it.")
+}</P>
+
+<P>A paragraph indented with only 1 space will be formatted using the nowrap
+class which is similar to the pre tag but will look like a normal paragraph.</P>
+
+<P class="wrap">Lorem ipsum bacon pork loin jowl beef.
+Porchetta proident doner nisi incididunt nostrud .
+Cupidatat ea porchetta salami pastrami spam.</P>
+
+<H1 id="example-text">5. Example Text</H1>
+<P>The word "Example:", with or without a colon, on a line by itself will identify
+the following paragraph as example text.  Example text will be formatted using
+the "pre" class. The example text will me marked with a anchor tag.  The name of
+the anchor tag will be taken from the previous heading name contatenated with "-
+example". If more than one example is found within a section, the example tag
+names will be numbered,e.g., Example 1, Example 2.</P>
+
+<H3 id="example-text-example">Example:</H3>
+<P class="pre">Bacon encrusted turkey lips
+Barbequed Possum tongue</P>
+
+<H1 id="text-spans">6. Text Spans</H1>
+<P>An in-line text formatting span is marked with pipe symbols surrounding the text
+and an optional single or dual character classname preceding it. Text spans
+cannot be nested.</P>
+
+<H3 id="text-spans-example-1">Example 1:</H3>
+<P class="pre">b|bold|             <SPAN class="b">bold</SPAN>
+i|italic|           <SPAN class="i">italic</SPAN>
+u|underline|        <SPAN class="u">underline</SPAN>
+h|highlight|        <SPAN class="h">highlight</SPAN>
+bi|bold italic|     <SPAN class="b i">bold italic</SPAN></P>
+
+<H1 id="lists">7. Lists</H1>
+<P>Bulleted lists are automatically generated by using an indented paragraph with
+leading hyphens or asterisks.</P>
+
+<UL>
+ <LI>Caffinated bacon</LI>
+ <LI>Baconated grapefruit</LI>
+ <LI>Admiral Crunch</LI>
+ <LI>Archduke Chocula</LI>
+</UL>
+
+<UL>
+ <LI>Tempor shank tongue</LI>
+ <LI>Tempura battered bacon balls</LI>
+ <LI>Porchetta pastrami ham hock soup</LI>
+</UL>
+
+<P>To create a numbered list, just use indented numbers.</P>
+
+<OL>
+ <LI>Pork loin tempor consequat magna spare ribs</LI>
+     jowls bresaola laborum turducken
+ <LI>Strip steak pancetta</LI>
+ <LI>Skinny fatback deserunt</LI>
+</OL>
+
+<H1 id="directives">8. Directives</H1>
+<P>The following direcives are optional and are used to modify the default
+behaviour of the parser.</P>
+
+<UL>
+ <LI><SPAN class="b">:beti</SPAN> on|off</LI>
+     Enable or disable comment parsing. May be used multiple times throughout
+     your document.  This directive is not required to begin comment parsing.
+     However, it may be used to switch comment parsing off and on in order to
+     skip entire sections of comment.
+</UL>
+
+<UL>
+ <LI><SPAN class="b">:title</SPAN> string</LI>
+     Used only once in your document, this directive will set the document
+     title, overriding the default action of using the first section heading.
+</UL>
+
+<UL>
+ <LI><SPAN class="b">:index</SPAN> top|bottom|none|default</LI>
+     Indicate where to place the index.  By default, the index will be placed
+     following the first section.
+</UL>
+
+<UL>
+ <LI><SPAN class="b">:nheadings</SPAN> on|off</LI>
+     Enable or disable numbered headings.
+</UL>
+
+<H1 id="page-anchors">9. Page Anchors</H1>
+<P>All of the headings automatically receive an anchor tag. The name of the anchor
+tags use the heading itself, lowercase and with hyphens in place of spaces.
+Creating a link to an anchor tag is accomplished by simply placing a hash symbol
+before the tag name as follows.</P>
+
+<H3 id="page-anchors-example">Example</H3>
+<P class="pre"><A href="#page-anchors">Page Anchors</A></P>
+
+<P>Each heading in this document will automatically get an ID containing the lower
+case alpha text within a heading. The leading demial numbers will be removed.
+The spaces will be converted into hyphens.</P>
+
+<H1 id="links">10. Links</H1>
+<P>Standard URLs will be converted into links.  Link text can be added by preceding
+the URL with a text span. Absolute and relative URLs require the preceding text
+span. The following examples show the various ways to construct links:</P>
+
+<H3 id="links-example">Example:</H3>
+<P class="pre">Plain URL:                  http://example.com/kevin-bacon/
+Link text:                  |Click this|http://example.com/kevin-bacon/
+Relative URL with text:     |Turducken Taco|./turducken-taco.html
+Page anchors:               See #page-anchors or #links</P>
+
+<H3 id="links-result">Result:</H3>
+<P class="pre"><A href="http://example.com/kevin-bacon/">http://example.com/kevin-bacon/</A>
+<A href="http://example.com/kevin-bacon/">Click this</A>
+<A href="./turducken-taco.html">Turducken Taco</A>
+See <A href="#page-anchors">Page Anchors</A> or <A href="#links">Links</A></P>
+
+<H1 id="escape-symbol">11. Escape Symbol</H1>
+<P>To prevent pipe or hash symbols from being interpreted as links, they may be
+escaped using a backslash.</P>
+
+<H3 id="escape-symbol-example">Example:</H3>
+<P class="pre">This \#anchor will not be interpreted.</P>
+
+<H3 id="escape-symbol-result">Result:</H3>
+<P class="pre">This #anchor will not be interpreted.</P>
+
+<H1 id="tables">12. Tables</H1>
+<P>Tables are quite simple to construct. Use a "Table:" directive on a preceding
+line by itself.  The data must be aligned in columns using tabs or spaces.  The
+heading row will  determine the column alignment.</P>
+
+<H3 id="tables-example">Example:</H3>
+<P class="pre">Table:
+    Qty      Description           Price
+    12       Corned beef           10.89
+    7        Pork belly            14.99</P>
+
+<H3 id="tables-result">Result:</H3>
+<H3 id="tables-table">Table:</H3>
+<DIV class="table">
+<DIV class="row rowno_0">
+  <DIV class="cell colno_0">Qty</DIV>
+  <DIV class="cell colno_1">Description</DIV>
+  <DIV class="cell colno_2">Price</DIV>
+</DIV>
+<DIV class="row rowno_1">
+  <DIV class="cell colno_0">12</DIV>
+  <DIV class="cell colno_1">Corned beef</DIV>
+  <DIV class="cell colno_2">10.89</DIV>
+</DIV>
+<DIV class="row rowno_2">
+  <DIV class="cell colno_0">7</DIV>
+  <DIV class="cell colno_1">Pork belly</DIV>
+  <DIV class="cell colno_2">14.99</DIV>
+</DIV>
+</DIV>
+
+<P>If the format cannot be determined, a preformatted text block (pre) will be used
+instead.</P>
+
+<H1 id="references">13. References</H1>
+<P>Sample text horked from <A href="https://baconipsum.com/">A Meatier Lorem Ipsum Generator</A></P>
+
+<P>Beti v0.0.0-x.0.1.89 Copyright 2015 Mark K Mueller. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be found in the <A href="./LICENSE.html">LICENSE</A> file.</P>
+
+<DIV class="footer">Beti v0.0.0-x.0.1.89<BR/>
+Copyright 2015 Mark K Mueller. All rights reserved.<BR/>
+Use of this source code is governed by a BSD-style<BR/>
+license that can be found in the LICENSE file.</DIV>
+<a id="topbuttton" href="#_top" title="Top of document"></a>
+</BODY>
+</HTML>

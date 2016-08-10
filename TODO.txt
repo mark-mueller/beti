@@ -1,0 +1,217 @@
+
+
+###  ISSUES  ###
+
+issue_001       Does not parse a .txt file.
+
+issue_002       Help flag "-h" does not display the usage line "Usage: beti [filename]"
+
+issue_003       Remove the Beti version and copyright info at the bottom of the page.
+                It's already in a comment tag.
+
+
+
+
+###  TO DO  ###
+
+todo_001        Add command line flag to embed stylesheet into html file.
+
+todo_002        Need a way to add a blank line to pre boxes.
+                Maybe a period on a line by itself.
+
+todo_003        Place the index wherever ":index" is placed.
+
+todo_004        Change :index to :toc
+
+todo_005        Make the :title text appear on the document
+
+
+
+
+
+###  COMPLETED ISSUES  ###
+
+X   accept filename from command line
+X   if extension is ".beti", ignore comment begin and end
+X   create index
+
+
+
+X        if filetype is .go then,
+X        read function definitions
+X            set regex capitalized function name
+X        read previous comment section
+X            only if it is unbroken and immediatly preceding the function definition
+
+11/13/2015 5:19AM   x061
+
+X       remove multiple splats in 1st column within block comments
+X       keep line comments within block comments. Remove leading double slash if in first column
+
+11/13/2015 8:22AM   x062
+11/16/2015 5:58AM   x063
+
+X        Create index for examples
+
+11/19/2015 4:06AM   x065
+
+X       Fix example:
+
+11/19/2015 4:12AM   x066
+
+X       Fix index indenting
+
+11/20/2015 1:11AM   x067
+X       Change style directive to "stylesheet" and will only accept a filename
+
+
+11/23/2015 6:26AM   x068
+X       Colon heading is being doubled.
+
+11/24/2015 6:30AM   x1.70
+X       Major change to parser. removed one layer of complexity
+
+11/25/2015 8:07AM   x1.71
+X        directive "beti on" no longer blocks trailing paragraph
+X        added "Examples:"
+X        Fix tables.  Use "Table:" or "Table n:".  Add the heading
+
+11/25/2015 4:03PM   x1.72
+X        Make anchor function return the html and the reformatted anchor name.
+X        Index now uses array of structs. Now has Text, Name and Level
+X        Example headings: added previous section heading to anchor name.
+X        Trimmed trailing colon from index name and text
+
+11/26/2015 10:04PM  x0.1.073
+X        Added link to Top of document
+X        Links work now
+X        Moved text parse routines to Parse_paragraph function.
+X        Remove anchor tags. Use heading id's instead.
+
+11/27/2015 8:22AM   x0.1.074
+X        Removed leading number from anchor names.
+
+11/27/2015 10:13AM  x0.1.075
+X        Level 2 headings now look the same as level 1 headings.
+X        Make index into a table. Separate leading decimal numbers.
+
+11/29/2015 7:54AM   x0.1.076
+X        Some css tweeks
+X        Change table. Remove link from index numbers.
+X        "Results:" now being interpreted.
+
+11/29/2015 7:36PM   x0.1.077
+X        Fixed heading id to remove trailing colon
+X        Add document title
+
+11/30/2015 5:57AM   x0.1.078
+X        Added "index" directive to place index at the top, the bottom, or after the first section.
+X        Directives not case sensitive
+X        Add "none" to the index directives
+
+11/30/2015 8:23AM   x0.1.079
+X        Add all parameters as command line flags.
+
+12/5/2015 10:58AM   x.0.1.82
+X        Add a "Footer" section
+X        Leading dot in first column should denote a section heading
+X        Headings and page title are capitalized (ToLower then UpperFirst)
+
+12/7/2015 5:37PM    x.0.1.83
+X        Numbers in first heading will enable numerical headings for all.
+X        Added ":nheadings on|off" to the directive parser
+         Check stdin...  (no workee)
+
+12/7/2015 5:37PM    x.0.1.84
+X        Removed stdin test code
+
+12/11/2015 5:23AM   x.0.1.85
+X        created ReadFileGuts
+X        Read stdio works now. If filename not supplied, accept input from stdin.
+X        Reorganized some of the code in main
+
+12/11/2015 6:42PM   x.0.1.88
+X       Added determineParseMode
+        Modes:
+            1   pre-parse found comments, "package name" and "func"
+            2   pre-parse found comments and "function"
+            3   pre-parse found no "package" or "func(tion)"
+
+12/16/2015 8:16AM x.0.1.89
+
+X        Remove stdin
+
+
+
+    -----------------------------------------------------------
+
+
+To Do:
+
+        Page anchors are not working.  Heading number being prepended to href.
+
+
+
+
+
+Wish List:
+
+    Make a :footer directive.
+
+    Want to add ./file as link to a file.
+
+    Make adding directives easier.
+
+    Parsing instructions:
+    *  Parse all comments until we hit the first "package", "var" or "func" keyword.
+    *  If package found, name will become page heading.
+    *  After package, only comments immediately preceding "var" or "func" will be parsed.
+
+    Add a Mode variable.
+    *  The ":beti" keyword will enable parsing even if no comments or keywords are found.
+    *  Block commnts or line comments will be treated the same.
+    *  White space between line comments will have no affect.
+
+
+    Wrap entire h1 sections in a div so they can be closed.
+    Add style directive.
+
+    Add package name header
+    Add public var section
+    Add import section
+
+    Generate an interim format in JSON.
+    {
+         "s":"h1",
+         "h":"Section heading",
+         "c":"Section content"
+    }
+
+    Change func directive or add a new one so it will work with "function" also.
+
+    Look for package name. If found, make it the heading.
+
+    Look for NAME, VERSION, AUTHOR, COPYRIGHT constants
+
+    Look for "var" keywords precedded by a comment.
+    Do not bother with muliple var declarations.
+
+    , supply -type flag to instruct beti what type
+    of data we have.  (beti, go).  If no flag, assume beti.
+
+    If the file is .beti or .txt, parse all lines, ignoring comments.
+    Otherwise, only comments will be parsed.
+
+    Like GoDoc, only parse the comments immediately preceding a public func,
+    or public var.
+
+    Since the type of input cannot be determined using stdin, then :beti or -someflag
+    will be required for plain text data. Else, parsing will begin at block comments.
+
+
+
+
+
+
+
+

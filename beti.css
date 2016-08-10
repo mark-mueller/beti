@@ -1,0 +1,53 @@
+/* Beti stylesheet v0.0 */
+BODY{font-family:sans-serif;font-size:12pt;background-color:#EAEADC;padding:0 2em 2em 2em;color:#333}
+H2,H3,H4,H5,H6{font-size:1em;font-weight:bold;color:#632}
+H3{font-size:1.1em;color:#000}
+
+ZH1,ZH2{font-weight:normal;font-size:1.8em;padding:0 0.2em;margin:0.8em -0.2em 0.3em -0.2em;color:#632;background-color:#CBCAAD;border-radius:3px}
+H1,H2{font-weight:normal;font-size:1.8em;padding:0 0.2em;margin:0.8em -0.2em 0.3em -0.2em;color:#632;
+ZZbackground-color:#CBCAAD;
+ZZborder-radius:3px;
+}
+H2{font-size:1.4em;}
+
+.footer{text-align:center;font-size:0.7em;margin-top:3em;color:#484540}
+
+SPAN.b{font-weight:bold;color:#000}
+SPAN.i{font-style:italic}
+SPAN.u{text-decoration:underline}
+SPAN.h{background-color:#ff0}
+P{margin:0.7em 0;padding:0}
+P.wrap{white-space:pre;overflow:auto;margin:1em 0;padding:0}
+P.pre{
+white-space:pre;
+overflow:auto;
+font-family:consolas,monaco,monospace;
+padding:0.5em;
+margin:1em 2em 1em 2em;
+background-color:#fffffc;
+border:1px solid #A9A767;
+border-radius:3px;
+}
+DIV.table{font-family:consolas,monaco,monospace;margin:1em 2em 1em 2em;width:85%}
+DIV.row{display:table-row}
+DIV.rowno_0 .cell{background-color:#D9D9C4;font-weight:bold}
+DIV.rowno_0 DIV.cell{border-top:1px solid #ccc}
+DIV.colno_0{border-left:1px solid #ccc}
+DIV.cell{display:table-cell;padding:0.1em 0.5em 0.1em 0.3em;border:1px solid #ccc;border-top:0;border-left:0;background-color:#fffffc}
+A:link{color:#843}
+A:hover{color:#247}
+A:active{color:#247}
+A:visited{color:#8F5630}
+#topbuttton{position:fixed;top:0px;right:5px;width:3em;height:1.9em;border-radius:0 0 2px 2px;box-shadow:1px 1px 5px #888;padding:4px 0 0 0;text-align:center;color:#414029;
+background:#CBCAAD url(data:image/gif;base64,R0lGODlhGAAMAIABAHlFJ3dGJiH5BAEKAAEALAAAAAAYAAwAAAIgjI8BkO231psmRuqsxUhrrngfJYpTWWZo2q0o5K5hvBYAOw==) no-repeat center}
+.index .row .cell{border:0;background-color:transparent;font-family:sans-serif;padding:0 0.5em 0 0}
+.index .row .index_num{color:#8F5630}
+.index .row .index_text A:link{text-decoration:none}
+.index .row .index_text A:hover{text-decoration:underline}
+.index .row .index_text .link-level-1{font-weight:bold;padding-top:0.3em}
+DIV.index{margin-left:2em}
+DIV.index .link-level-1{margin-left:0}
+DIV.index .link-level-2{margin-left:20pt}
+DIV.index .link-level-3{margin-left:40pt}
+DIV.index .link-level-4{margin-left:60pt}
+/*eof*/

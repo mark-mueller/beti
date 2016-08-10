@@ -1,0 +1,5 @@
+*.exe
+*.bak
+/bin
+/Previous Versions
+/misc
