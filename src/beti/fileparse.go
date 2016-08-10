@@ -35,24 +35,23 @@ func FileParse () (paragraphs []string) {
 		s = expand_tabs(s)
         var m []string
 
-		if block_comment_on || Is_BetiFile {
+		if block_comment_on || !Is_GoFile {
 
-    		if !Is_BetiFile {
-    			m := compiledRegex["endComment"].FindStringSubmatch(s)
-    			if m != nil {
-    				if len(paragraphs[ndx]) > 0 {
-    					paragraphs[ndx] += "\n"
-    				}
-    				paragraphs[ndx] += m[1]
-    				paragraphs = append(paragraphs, "")
-    				ndx += 1
-    				block_comment_on = false
-    				continue
-    			}
-    			m = compiledRegex["leadingSplats"].FindStringSubmatch(s)
-    		    if m != nil {
-                    s = m[1]
-                }
+			m := compiledRegex["endComment"].FindStringSubmatch(s)
+			if m != nil {
+				if len(paragraphs[ndx]) > 0 {
+					paragraphs[ndx] += "\n"
+				}
+				paragraphs[ndx] += m[1]
+				paragraphs = append(paragraphs, "")
+				ndx += 1
+				block_comment_on = false
+				continue
+			}
+
+			m = compiledRegex["leadingSplats"].FindStringSubmatch(s)
+		    if m != nil {
+                s = m[1]
             }
 
 			m = compiledRegex["directive"].FindStringSubmatch(s)

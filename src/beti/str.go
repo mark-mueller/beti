@@ -9,7 +9,6 @@ import (
 	"encoding/hex"
 )
 
-var Is_BetiFile = false
 var Is_GoFile = false
 
 

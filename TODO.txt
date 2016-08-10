@@ -2,7 +2,6 @@
 
 ###  ISSUES  ###
 
-issue_001       Does not parse a .txt file.
 
 issue_002       Help flag "-h" does not display the usage line "Usage: beti [filename]"
 
@@ -28,6 +27,11 @@ todo_005        Make the :title text appear on the document
 
 
 ###  COMPLETED ISSUES  ###
+
+8/10/2016 6:41AM MKM        issue_001       Does not parse a .txt file.
+                                            Now parses .go and all others as plain text.
+
+
 
 X   accept filename from command line
 X   if extension is ".beti", ignore comment begin and end

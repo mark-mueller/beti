@@ -14,7 +14,7 @@ const (
     NAME          = "Beti"
     VERSION       = "0.0.0"             // Major.Minor.Patch
     BUILD_VERSION = "x.0.1"             // BuildStatus.BuildMajor.BuildMinor
-    BUILD_NO      = "89"                // BuildNumber (x.0.1.89)
+    BUILD_NO      = "90"                // BuildNumber (x.0.1.90)
     BUILD_DATE    = "2015-12-16"
     AUTHOR        = "Mark K Mueller, mark@markmueller.com"
     COPYRIGHT     = "Copyright 2015 Mark K Mueller. All rights reserved.\nUse of this source code is governed by a BSD-style\nlicense that can be found in the LICENSE file."
@@ -33,7 +33,7 @@ func main () {
     section_heading := ""
     levels := []int{0, 0, 0, 0, 0, 0, 0}
 
-    filename,exists := beti.GetFilename()
+    filename, exists := beti.GetFilename()
     if filename == "" {
         println("Usage: Beti [filename]")
         return
@@ -49,12 +49,15 @@ func main () {
         println("Error: Cannot read file")
         return
 	}
+
     // Check file extension
+    // Later I may need different parsing routines depending on the file type
+    // For now, I am only checking for Go source files. All others are treated as plain text.
     switch beti.FileExtension(filename) {
-        case "beti":
-            beti.Is_BetiFile = true
         case "go":
             beti.Is_GoFile = true
+        //case "c":
+        //    beti.Is_CFile = true
     }
 
     // parse text into an array of paragraphs
