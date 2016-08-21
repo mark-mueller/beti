@@ -1,8 +1,8 @@
 #Beti Text Formatter
 
-> By Mark K Mueller
-> mark@markmueller.com
-> v2.03 2015-09-17
+    By Mark K Mueller
+    mark@markmueller.com
+    v2.03 2015-09-17
 
 The Beti text formatting engine will produce HTML documents from a source file
 using little more than indented paragraphs and a small set of keywords. The goal
