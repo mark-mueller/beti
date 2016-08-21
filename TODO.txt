@@ -9,18 +9,20 @@ issue_002       Help flag "-h" does not display the usage line "Usage: beti [fil
 
 
 
-###  TO DO  ###
+###  FEATURES TO BE ADDED LATER ###
 
-todo_001        Add command line flag to embed stylesheet into html file.
+feature_0110        Make beti into a package
 
-todo_002        Need a way to add a blank line to pre boxes.
-                Maybe a period on a line by itself.
+feature_0120        Need a way to add a blank line to pre boxes.
+                    (Maybe a period on a line by itself.)
 
-todo_003        Place the index wherever ":index" is placed.
+feature_0130        Place the index wherever ":index" is placed.
 
-todo_004        Change :index to :toc
+feature_0140        Change :index to :toc
 
-todo_005        Make the :title text appear on the document
+feature_0150        Make the :title text appear on the document
+
+feature_0160        Add command line flag to embed stylesheet into html file.
 
 
 
@@ -28,8 +30,8 @@ todo_005        Make the :title text appear on the document
 
 ###  COMPLETED ISSUES  ###
 
-8/10/2016 6:41AM MKM        issue_001       Does not parse a .txt file.
-                                            Now parses .go and all others as plain text.
+8/10/2016 6:41AM MKM        issue_001(fixed)       Does not parse .txt file.
+
 
 
 
@@ -148,7 +150,7 @@ X        Remove stdin
     -----------------------------------------------------------
 
 
-To Do:
+
 
         Page anchors are not working.  Heading number being prepended to href.
 

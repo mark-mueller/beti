@@ -12,10 +12,8 @@ import (
 
 const (
     NAME          = "Beti"
-    VERSION       = "0.0.0"             // Major.Minor.Patch
-    BUILD_VERSION = "x.0.1"             // BuildStatus.BuildMajor.BuildMinor
-    BUILD_NO      = "90"                // BuildNumber (x.0.1.90)
-    BUILD_DATE    = "2015-12-16"
+    VERSION       = "0.1.91x"           // Major.Minor.Patch
+    BUILD_DATE    = "2016-08-16"
     AUTHOR        = "Mark K Mueller, mark@markmueller.com"
     COPYRIGHT     = "Copyright 2015 Mark K Mueller. All rights reserved.\nUse of this source code is governed by a BSD-style\nlicense that can be found in the LICENSE file."
 )
@@ -26,7 +24,7 @@ const (
 
 func main () {
 
-    beti.Version = NAME+" v"+VERSION+"-"+BUILD_VERSION+"."+BUILD_NO
+    beti.Version = NAME +" v"+ VERSION +" "+BUILD_DATE
     beti.Copyright = COPYRIGHT
 
 	hcount := 0
