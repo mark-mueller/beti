@@ -4,7 +4,7 @@
 
  By Mark K Mueller
  mark@markmueller.com
- v2.03 2015-09-17
+ 0.1.91x 2016-08-20
 
 The Beti text formatting engine will produce HTML documents from a source file
 using little more than indented paragraphs and a small set of keywords. The goal
@@ -213,5 +213,5 @@ Sample text horked from |A Meatier Lorem Ipsum Generator|https://baconipsum.com/
 
 :footer
 
-Beti v0.0.0-x.0.1.89 Copyright 2015 Mark K Mueller. All rights reserved.
-Use of this source code is governed by a BSD-style license that can be found in the |LICENSE|./LICENSE.html file.
+Beti 0.1.91x Copyright 2015 Mark K Mueller. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be found in the |LICENSE|./LICENSE.txt file.
